@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Prashant Khatri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --primary-color: #445d7b;
+            --secondary-color: #445d7b;
+            --text-color: #2d3436;
+            --bg-color: #f5f7fa;
+            --section-bg: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #445d7b;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background: rgba(68, 93, 123, 0.1);
+        }
+
+        .about-section {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .education-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(68, 93, 123, 0.1);
+        }
+
+        .education-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .education-section h2 i {
+            color: var(--secondary-color);
+        }
+
+        .education-list {
+            list-style: none;
+        }
+
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .education-item::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .education-item strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-item span {
+            display: block;
+            color: #34495e;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-item p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 0.5rem;
+                background: rgba(255, 255, 255, 0.98);
+            }
+
+            .nav-links {
+                margin-top: 0.3rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .about-section {
+                padding-top: 200px;
+            }
+
+            .about-content {
+                padding: 1.5rem;
+            }
+        }
+
+        .quick-links {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Watermark Styles */
+        .watermark-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .watermark {
+            position: absolute;
+            opacity: 0.05;
+            transform: rotate(-30deg);
+            transition: all 0.3s ease;
+        }
+
+        .watermark img {
+            width: 200px;
+            height: auto;
+        }
+
+        .watermark.linux img {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+        }
+
+        .watermark.azure img {
+            filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(1234%) hue-rotate(199deg) brightness(97%) contrast(101%);
+        }
+
+        .watermark.microsoft img {
+            filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(1234%) hue-rotate(199deg) brightness(97%) contrast(101%);
+        }
+
+        .watermark.aws img {
+            filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(1234%) hue-rotate(199deg) brightness(97%) contrast(101%);
+        }
+
+        .watermark.linux {
+            top: 10%;
+            left: 10%;
+        }
+
+        .watermark.azure {
+            top: 30%;
+            right: 15%;
+        }
+
+        .watermark.microsoft {
+            bottom: 20%;
+            left: 20%;
+        }
+
+        .watermark.aws {
+            bottom: 30%;
+            right: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark-container">
+        <div class="watermark linux">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux Tux">
+        </div>
+        <div class="watermark azure">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure">
+        </div>
+        <div class="watermark microsoft">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft">
+        </div>
+        <div class="watermark aws">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="contact.html">Contact</a>
+            <a href="PrashantKhatriCV.html">Cloud CV</a>
+        </div>
+    </nav>
+
+    <section class="about-section">
+        <div class="about-header">
+            <h1>About Me</h1>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p class="professional-description">
+                    Hi, I am Prashant Khatri, a passionate Senior Technical Support Engineer with 7+ years of experience in virtual machines, general Linux troubleshooting, basic Linux package management (APT, YUM, DNF), Active Directory Domain Services, DNS zones, DNS queries, VMware, Hyper-V, DHCP, WSUS, and server management.
+                </p>
+                <p class="professional-description">
+                    I have expertise in Active Directory Domain Services, DNS, VMware, Hyper-V, and DHCP. Proficient in WSUS, server patching, on-premises deployments, and cloud-based deployments.
+                </p>
+                <p class="professional-description">
+                    Currently expanding my expertise in Azure, AWS, and scripting, focusing on cloud computing and infrastructure management.
+                </p>
+            </div>
+            
+            <div class="education-section">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <ul class="education-list">
+                    <li class="education-item">
+                        <strong>Senior Secondary Education</strong>
+                        <span>Cambridge Court High School (Jaipur, Rajasthan)</span>
+                        <p>Apr 2013 - Jun 2014</p>
+                    </li>
+                    <li class="education-item">
+                        <strong>Secondary Education</strong>
+                        <span>Cambridge Court High School (Jaipur, Rajasthan)</span>
+                        <p>Apr 2011 - Apr 2012</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
